@@ -39,14 +39,14 @@ HydroDCM has four modules and a predictive head:
 * **Adversarial loss $L_{\text{adv}}$** between $\mathbf{v}$ and $\mathbf{h}$ with a discriminator $d_\theta$; apply a **GRL** to push $f_\phi$ to remove domain information from $\mathbf{h}$, yielding invariant $\mathbf{z}$.
 * **Supervised loss $L_{\text{sup}}$** as **MSE** on the prediction from the **modulated** invariant features:
 
-  $$
-  \tilde{\mathbf{z}} = \gamma(\mathbf{s}) \odot \mathbf{z} + \delta(\mathbf{s}),\qquad \hat{y} = p_\omega(\tilde{\mathbf{z}}).
-  $$
+$$
+\tilde{\mathbf{z}} = \gamma(\mathbf{s}) \odot \mathbf{z} + \delta(\mathbf{s}),\qquad \hat{y} = p_\omega(\tilde{\mathbf{z}}).
+$$
 * **Total objective:**
 
-  $$
-  L_{\text{total}} = L_{\text{con}} \;+\; \lambda_{\text{adv}}\, L_{\text{adv}} \;+\; \lambda_{\text{sup}}\, L_{\text{sup}}.
-  $$
+$$
+L_{\text{total}} = L_{\text{con}} \;+\; \lambda_{\text{adv}}\, L_{\text{adv}} \;+\; \lambda_{\text{sup}}\, L_{\text{sup}}.
+$$
 
   Choose $\lambda_{\text{adv}}$ and $\lambda_{\text{sup}}$ to balance invariance and accuracy.
 
